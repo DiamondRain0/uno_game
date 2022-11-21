@@ -1,0 +1,51 @@
+import random as rd
+
+dect= []
+jokers = []
+colour = ["y","r","b","g"]
+joker = ["reverse","stop","+2"]
+for  c in colour:
+    for j in joker:
+        jokers.append((c,j))
+for c in colour:
+    for i in range(10):
+        dect.append((c,i))
+dect += jokers
+
+
+
+class Uno:
+    def __init__(self,player):
+        self.player = player
+        self.start_card = 6
+        self.player_num = 1
+    def random_give_card(self,player_num):
+        li = []
+        for i in range(7):
+            card = rd.choice(dect)
+            li.append(card)
+            self.remove_card(card)
+        return li
+
+    def prepare_player_cards(self,player):
+        player_dects = []
+        for p in range(1,player):
+            player_dects = self.random_give_card(p)
+
+
+    def player_dect(self, player_num):
+        pass
+    def move_card(self,player_num):
+        pass
+    def remove_card(self,card):
+        dect.remove(card)
+
+    def display_card(self,player_num):
+        print(f"Player{player_num} , you have .... cards")
+
+    def print_dect(self):
+        print(dect)
+    
+
+unoo = Uno(2)
+unoo.print_dect()
